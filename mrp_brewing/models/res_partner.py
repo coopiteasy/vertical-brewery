@@ -113,7 +113,7 @@ def compute_crate_per_month(partner_orders):
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    last_order = fields.Date(
+    last_order = fields.Datetime(
         string="Last Order", compute="_compute_sales_statistics", store=True
     )
 
