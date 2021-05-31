@@ -12,6 +12,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[mrp_brewing](mrp_brewing/) | 12.0.1.0.0 | This module allows to handle product transformation
 
 [//]: # (end addons)
 <!-- prettier-ignore-end -->
