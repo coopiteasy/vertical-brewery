@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/coopiteasy/vertical-brewery.svg?branch=12.0)](https://travis-ci.com/coopiteasy/vertical-brewery)
 ![Licence](https://img.shields.io/badge/licence-AGPL--3-blue.svg)
 
 # your new repository
