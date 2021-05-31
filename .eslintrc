@@ -55,9 +55,7 @@
     "no-implicit-coercion": [
       "warn",
       {
-        "allow": [
-          "~"
-        ]
+        "allow": ["~"]
       }
     ],
     "no-implicit-globals": "warn",
@@ -152,10 +150,7 @@
     "arrow-spacing": "off",
     "accessor-pairs": "warn",
     "block-scoped-var": "off",
-    "block-spacing": [
-      "warn",
-      "always"
-    ],
+    "block-spacing": ["warn", "always"],
     "brace-style": "warn",
     "callback-return": "warn",
     "camelcase": "off",
@@ -167,10 +162,7 @@
         "ignoreInlineComments": true
       }
     ],
-    "comma-dangle": [
-      "warn",
-      "always-multiline"
-    ],
+    "comma-dangle": ["warn", "always-multiline"],
     "comma-spacing": [
       "warn",
       {
@@ -179,20 +171,14 @@
       }
     ],
     "comma-style": "warn",
-    "complexity": [
-      "warn",
-      15
-    ],
+    "complexity": ["warn", 15],
     "computed-property-spacing": "off",
     "consistent-return": "off",
     "consistent-this": "off",
     "constructor-super": "warn",
     "curly": "warn",
     "default-case": "off",
-    "dot-location": [
-      "warn",
-      "property"
-    ],
+    "dot-location": ["warn", "property"],
     "dot-notation": "warn",
     "eol-last": "warn",
     "eqeqeq": "warn",
@@ -210,10 +196,7 @@
     "jsx-quotes": "warn",
     "key-spacing": "off",
     "keyword-spacing": "warn",
-    "linebreak-style": [
-      "warn",
-      "unix"
-    ],
+    "linebreak-style": ["warn", "unix"],
     "lines-around-comment": "warn",
     "max-depth": "warn",
     "max-len": [
@@ -235,16 +218,8 @@
     "newline-after-var": "off",
     "newline-before-return": "off",
     "newline-per-chained-call": "off",
-    "object-curly-newline": [
-      "warn",
-      {
-        "consistent": true
-      }
-    ],
-    "object-curly-spacing": [
-      "warn",
-      "never"
-    ],
+    "object-curly-newline": ["warn", {"consistent": true}],
+    "object-curly-spacing": ["warn", "never"],
     "object-property-newline": [
       "warn",
       {
@@ -268,10 +243,7 @@
     "radix": "warn",
     "require-yield": "warn",
     "rest-spread-spacing": "off",
-    "semi": [
-      "warn",
-      "always"
-    ],
+    "semi": ["warn", "always"],
     "semi-spacing": "warn",
     "sort-imports": "warn",
     "sort-vars": "off",
@@ -280,14 +252,8 @@
     "space-in-parens": "off",
     "space-infix-ops": "off",
     "space-unary-ops": "off",
-    "spaced-comment": [
-      "warn",
-      "always"
-    ],
-    "strict": [
-      "warn",
-      "function"
-    ],
+    "spaced-comment": ["warn", "always"],
+    "strict": ["warn", "function"],
     "template-curly-spacing": "off",
     "unicode-bom": "warn",
     "use-isnan": "warn",
