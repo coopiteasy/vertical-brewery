@@ -96,9 +96,7 @@ def compute_crate_per_month(partner_orders):
     if crate_lines:
         nb_crates = sum(crate_lines.mapped("qty_invoiced"))
 
-        order_dates = list(
-            map(_parse_date, partner_orders.mapped("date_order"))
-        )
+        order_dates = list(map(_parse_date, partner_orders.mapped("date_order")))
         first_order_date = sorted(order_dates, reverse=True).pop()
         nb_months = month_delta(first_order_date, dt.datetime.today())
 
@@ -132,16 +130,14 @@ class ResPartner(models.Model):
         string="Crates Bought per Sale Order",
         compute="_compute_sales_statistics",
         store=True,
-        help="Average number of crates bought per order over the last 12 "
-        "months. ",
+        help="Average number of crates bought per order over the last 12 " "months. ",
     )
 
     crate_per_month = fields.Float(
         string="Crates Bought per Month",
         compute="_compute_sales_statistics",
         store=True,
-        help="Average number of crates bought per month over the last 12 "
-        "months. ",
+        help="Average number of crates bought per month over the last 12 " "months. ",
     )
 
     @api.multi
@@ -151,9 +147,9 @@ class ResPartner(models.Model):
             partner_orders = partner.sale_order_ids.filtered(
                 lambda r: r.state not in ["cancel", "draft"]
             )
-            childs_orders = partner.mapped(
-                "child_ids.sale_order_ids"
-            ).filtered(lambda r: r.state not in ["cancel", "draft"])
+            childs_orders = partner.mapped("child_ids.sale_order_ids").filtered(
+                lambda r: r.state not in ["cancel", "draft"]
+            )
             partner_orders = partner_orders + childs_orders
 
             partner.last_order = compute_last_order(partner_orders)

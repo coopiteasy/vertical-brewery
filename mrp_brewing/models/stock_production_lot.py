@@ -23,8 +23,7 @@ class StockProductionLot(models.Model):
     def _compute_qty_available(self):
         for lot in self:
             quants = lot.quant_ids.filtered(
-                lambda r: r.location_id.usage == "internal"
-                and not r.reserved_quantity
+                lambda r: r.location_id.usage == "internal" and not r.reserved_quantity
             )  # noqa
             quantity = sum(quants.mapped("quantity"))
             lot.qty_available = quantity

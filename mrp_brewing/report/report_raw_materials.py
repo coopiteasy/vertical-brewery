@@ -1,7 +1,6 @@
 import time
 
-from odoo import _, api, models
-from odoo.exceptions import UserError
+from odoo import api, models
 
 
 class ReportRawMaterials(models.AbstractModel):

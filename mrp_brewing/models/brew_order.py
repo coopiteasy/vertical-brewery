@@ -1,11 +1,12 @@
 # Part of Open Architechts Consulting sprl. See LICENSE file for full
 # copyright and licensing details.
 
-from datetime import date, datetime
+from datetime import date
 
 from odoo import _, api, fields, models
-from odoo.addons import decimal_precision as dp
 from odoo.exceptions import UserError
+
+from odoo.addons import decimal_precision as dp
 
 
 class BrewOrder(models.Model):
@@ -27,13 +28,9 @@ class BrewOrder(models.Model):
         readonly=True,
         default="draft",
     )
-    brew_declaration_id = fields.Many2one(
-        "brew.declaration", string="Brew declaration"
-    )
+    brew_declaration_id = fields.Many2one("brew.declaration", string="Brew declaration")
     start_date = fields.Datetime(string="Planned date", required=True)
-    wort_gathering_date = fields.Datetime(
-        string="Wort gathering date", required=True
-    )
+    wort_gathering_date = fields.Datetime(string="Wort gathering date", required=True)
     end_date = fields.Datetime(string="End date", required=True)
     product_id = fields.Many2one(
         "product.product",
@@ -61,14 +58,12 @@ class BrewOrder(models.Model):
         "mrp.production", string="Production Order", readonly=True
     )
     consumed_lines = fields.One2many(
-        "stock.move", string="Consumed lines", compute="_compute_consumed_lines"
+        "stock.move",
+        string="Consumed lines",
+        compute="_compute_consumed_lines",
     )
-    bom = fields.Many2one(
-        "mrp.bom", string="Bill of material", compute="_compute_bom"
-    )
-    parent_brew_order_id = fields.Many2one(
-        "brew.order", string="parent brew order"
-    )
+    bom = fields.Many2one("mrp.bom", string="Bill of material", compute="_compute_bom")
+    parent_brew_order_id = fields.Many2one("brew.order", string="parent brew order")
     child_brew_orders = fields.One2many(
         "brew.order", "parent_brew_order_id", string="Child brew order"
     )
@@ -117,9 +112,7 @@ class BrewOrder(models.Model):
             brew_order.consumed_lines = raw_mat_moves
 
     @api.multi
-    @api.depends(
-        "product_id", "brew_number", "brew_beer_number", "state", "start_date"
-    )
+    @api.depends("product_id", "brew_number", "brew_beer_number", "state", "start_date")
     def _compute_name(self):
         year = date.today().year
         if self.start_date:
@@ -127,11 +120,15 @@ class BrewOrder(models.Model):
         for order in self:
             if order.state in ["done", "cancel"]:
                 order.name = "{}_{}_{}".format(
-                    order.product_id.code, year, order.brew_beer_number,
+                    order.product_id.code,
+                    year,
+                    order.brew_beer_number,
                 )
             else:
                 order.name = "{}_{}_{}".format(
-                    order.product_id.code, year, order.state,
+                    order.product_id.code,
+                    year,
+                    order.state,
                 )
 
     @api.multi
@@ -143,18 +140,12 @@ class BrewOrder(models.Model):
     def action_confirm(self):
         bom_id = self.env["mrp.bom"]._bom_find(product=self.product_id)
         if not bom_id:
-            raise UserError(
-                _("No Bill of Materials found.")
-            )
+            raise UserError(_("No Bill of Materials found."))
         if self.parent_brew_order_id:
             if self.parent_brew_order_id.state != "done":
-                raise UserError(
-                    _("You must first confirm the parent brew order.")
-                )
+                raise UserError(_("You must first confirm the parent brew order."))
         else:
-            brew_beer_number = (
-                self.product_id.brew_product_sequence.next_by_id()
-            )
+            brew_beer_number = self.product_id.brew_product_sequence.next_by_id()
             brew_year_sequence = self.env["ir.sequence"].search(
                 [("code", "=", "brew.year.sequence")]
             )

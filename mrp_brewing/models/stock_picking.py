@@ -17,9 +17,7 @@ class StockPicking(models.Model):
         },
         track_visibility="onchange",
     )
-    date_done = fields.Datetime(
-        readonly=False, states={"done": [("readonly", True)]}
-    )
+    date_done = fields.Datetime(readonly=False, states={"done": [("readonly", True)]})
 
     @api.multi
     def action_done(self):

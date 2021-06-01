@@ -20,9 +20,7 @@ class StockMove(models.Model):
         readonly=True,
     )
     brew_number = fields.Integer(string="Brew number", readonly=True)
-    is_internal = fields.Boolean(
-        string="Is Internal", compute="_compute_is_internal"
-    )
+    is_internal = fields.Boolean(string="Is Internal", compute="_compute_is_internal")
 
     @api.model
     @api.depends("state")
@@ -84,9 +82,7 @@ class StockMove(models.Model):
             view_id, view_type, toolbar=toolbar, submenu=submenu
         )
         if "fields" in result and "product_id" in result["fields"]:
-            result["fields"]["product_id"][
-                "domain"
-            ] = self._compute_product_domain(
+            result["fields"]["product_id"]["domain"] = self._compute_product_domain(
                 result["fields"].get("is_internal", False)
             )
         return result

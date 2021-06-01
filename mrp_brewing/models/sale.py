@@ -58,9 +58,7 @@ class SaleOrder(models.Model):
             if sale_order.state in ["sale", "done"]:
                 done_date = None
                 delivery_status = None
-                for picking in sale_order.picking_ids.sorted(
-                    key=lambda r: r.name
-                ):
+                for picking in sale_order.picking_ids.sorted(key=lambda r: r.name):
                     if picking.state == "done":
                         if delivery_status != "to_deliver":
                             if picking.date_done > done_date:
@@ -123,16 +121,13 @@ class SaleOrderLine(models.Model):
         # - model `procurement.order` doesn't exist anymore
         # - simply delete?
         # - could `move_ids` and `_compute_qty_delivered` be used instead?
-        #   (https://github.com/OCA/OCB/blob/12.0/addons/sale_stock/models/sale_order.py#L186)
+        #   (https://github.com/OCA/OCB/blob/12.0/addons/sale_stock/models/sale_order.py#L186)  # noqa
 
         for line in self:
             product_lot_ids = []
             for move in line.procurement_ids.mapped("move_ids").filtered(
                 lambda r: r.state == "done" and not r.scrapped
             ):
-                if (
-                    move.location_dest_id.usage == "customer"
-                    and len(move.lot_ids) > 0
-                ):
+                if move.location_dest_id.usage == "customer" and len(move.lot_ids) > 0:
                     product_lot_ids.append(move.lot_ids.ids[0])
             line.product_lot_ids = product_lot_ids
