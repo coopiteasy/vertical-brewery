@@ -139,8 +139,16 @@ class BrewOrder(models.Model):
     @api.multi
     def action_confirm(self):
         bom_id = self.env["mrp.bom"]._bom_find(product=self.product_id)
+
         if not bom_id:
-            raise UserError(_("No Bill of Materials found."))
+            raise UserError(
+                _("No Bill of Materials found for %s.") % self.product_id.name
+            )
+        if not self.product_id.brew_product_sequence:
+            raise UserError(
+                _("No product sequence found for %s.") % self.product_id.name
+            )
+
         if self.parent_brew_order_id:
             if self.parent_brew_order_id.state != "done":
                 raise UserError(_("You must first confirm the parent brew order."))
@@ -152,6 +160,8 @@ class BrewOrder(models.Model):
             brew_year_number = 0
             if self.get_brew_number:
                 brew_year_number = brew_year_sequence.next_by_id()
+        # fixme what happens if self.parent_brew_order_id and
+        #   self.parent_brew_order_id.state == "done" ?
         self.write(
             {
                 "state": "done",

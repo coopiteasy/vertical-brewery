@@ -80,6 +80,8 @@ class MrpProduction(models.Model):
 
     @api.multi
     def open_produce_product(self):
+        # fixme: the master_mo_id assgnment could ne done at mo
+        #   creation directly since we already have the origin field filled
         if not self.product_id.is_brewable and not self.master_mo_id:
             parent_mo = self.search([("name", "=", self.origin)])
             master_mo = False

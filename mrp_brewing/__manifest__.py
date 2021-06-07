@@ -45,6 +45,11 @@
         "views/res_partner_view.xml",
         "views/res_company_view.xml",
     ],
+    "demo": [
+        "demo/product_demo.xml",
+        "demo/stock_demo.xml",
+        "demo/mrp_demo.xml",
+    ],
     "application": True,
     "installable": True,
 }

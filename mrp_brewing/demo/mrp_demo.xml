@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="demo_mrp_bom_roublarde" model="mrp.bom">
+        <field
+            name="product_tmpl_id"
+            ref="demo_product_product_roublarde_product_template"
+        />
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="sequence">0</field>
+        <field name="code">ROU-BOTTLE</field>
+        <!--            <field name="routing_id" ref="mrp_routing_3"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_line_1" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_green_beer" />
+        <field name="product_qty">0.33</field>
+        <field name="product_uom_id" ref="uom.product_uom_litre" />
+        <field name="sequence">1</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_line_2" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_bottle" />
+        <field name="product_qty">1</field>
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="sequence">2</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_line_3" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_cap" />
+        <field name="product_qty">1</field>
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="sequence">3</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_line_4" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_sticker" />
+        <field name="product_qty">1</field>
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="sequence">4</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_green" model="mrp.bom">
+        <field
+            name="product_tmpl_id"
+            ref="demo_product_product_green_beer_product_template"
+        />
+        <field name="product_qty">100</field>
+        <field name="product_uom_id" ref="uom.product_uom_litre" />
+        <field name="sequence">1</field>
+        <field name="code">ROU-GREEN</field>
+        <!--            <field name="routing_id" ref="mrp_routing_3"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_green_line_1" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_beer_wort" />
+        <field name="product_qty">100</field>
+        <field name="product_uom_id" ref="uom.product_uom_litre" />
+        <field name="sequence">1</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde_green" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_green_line_2" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_yeast" />
+        <field name="product_qty">25</field>
+        <field name="product_uom_id" ref="uom.product_uom_gram" />
+        <field name="sequence">2</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde_green" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_wort" model="mrp.bom">
+        <!-- todo set mrp subproducts -->
+        <field
+            name="product_tmpl_id"
+            ref="demo_product_product_beer_wort_product_template"
+        />
+        <field name="product_qty">100</field>
+        <field name="product_uom_id" ref="uom.product_uom_litre" />
+        <field name="sequence">2</field>
+        <field name="code">ROU-WORT</field>
+        <!--            <field name="routing_id" ref="mrp_routing_3"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_wort_line_1" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_malt" />
+        <field name="product_qty">17.5</field>
+        <field name="product_uom_id" ref="uom.product_uom_kgm" />
+        <field name="sequence">1</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde_wort" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+
+    <record id="demo_mrp_bom_roublarde_wort_line_2" model="mrp.bom.line">
+        <field name="product_id" ref="demo_product_product_water" />
+        <field name="product_qty">130</field>
+        <field name="product_uom_id" ref="uom.product_uom_litre" />
+        <field name="sequence">2</field>
+        <field name="bom_id" ref="demo_mrp_bom_roublarde_wort" />
+        <!--            <field name="operation_id" ref="mrp.mrp_routing_workcenter_5"/>-->
+    </record>
+</odoo>
