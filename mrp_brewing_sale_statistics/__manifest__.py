@@ -7,7 +7,7 @@
     "category": "Stock",
     "version": "12.0.1.0.0",
     "author": "Coop IT Easy SCRLfs",
-    "website": "https://github.com/OCA/sale-workflow",
+    "website": "https://github.com/coopiteasy/vertical-brewery",
     "license": "AGPL-3",
     "depends": [
         "mrp_brewing",
