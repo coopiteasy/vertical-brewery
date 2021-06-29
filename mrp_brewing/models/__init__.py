@@ -7,5 +7,4 @@ from . import mrp_production
 from . import brew_declaration
 from . import brew_order
 from . import sale
-from . import res_partner
 from . import res_company

@@ -64,7 +64,7 @@ def compute_sale_frequency(partner_orders):
         delta_sum = sum(order_date_deltas, dt.timedelta(0))
         average_delta = delta_sum / len(order_date_deltas)
 
-        return "%s days" % average_delta.days
+        return average_delta.days
 
     else:
         return None
@@ -93,7 +93,7 @@ def compute_crate_per_month(partner_orders):
     if crate_lines:
         nb_crates = sum(crate_lines.mapped("qty_invoiced"))
 
-        order_dates = list(map(_parse_date, partner_orders.mapped("date_order")))
+        order_dates = list(map(_parse_date, last_year_orders.mapped("date_order")))
         first_order_date = sorted(order_dates, reverse=True).pop()
         nb_months = month_delta(first_order_date, dt.datetime.today())
 
@@ -113,32 +113,34 @@ class ResPartner(models.Model):
     )
 
     last_contact_date = fields.Date(string="Last Contact Date")
-
     last_contact_comment = fields.Char(string="Last Contact Comment")
-
-    sale_frequency = fields.Char(
+    sale_frequency = fields.Integer(
+        string="Sale Order Frequency - Int",
+        compute="_compute_sales_statistics",
+        store=True,
+        help="Average nb of days between two orders over the last 12 months.",
+    )
+    sale_frequency_str = fields.Char(
         string="Sale Order Frequency",
         compute="_compute_sales_statistics",
         store=True,
         help="Average time between two orders over the last 12 months.",
     )
-
     crate_per_order = fields.Float(
         string="Crates Bought per Sale Order",
         compute="_compute_sales_statistics",
         store=True,
-        help="Average number of crates bought per order over the last 12 " "months. ",
+        help="Average number of crates bought per order over the " "last 12 months.",
     )
-
     crate_per_month = fields.Float(
         string="Crates Bought per Month",
         compute="_compute_sales_statistics",
         store=True,
-        help="Average number of crates bought per month over the last 12 " "months. ",
+        help="Average number of crates bought per month over the " "last 12 months.",
     )
 
     @api.multi
-    @api.depends("sale_order_ids")
+    @api.depends("sale_order_ids.state", "sale_order_ids.date_order")
     def _compute_sales_statistics(self):
         for partner in self:
             partner_orders = partner.sale_order_ids.filtered(
@@ -151,6 +153,7 @@ class ResPartner(models.Model):
 
             partner.last_order = compute_last_order(partner_orders)
             partner.sale_frequency = compute_sale_frequency(partner_orders)
+            partner.sale_frequency_str = "%s days" % partner.sale_frequency
             partner.crate_per_order = compute_crate_per_order(partner_orders)
             partner.crate_per_month = compute_crate_per_month(partner_orders)
 

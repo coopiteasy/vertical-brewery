@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "MRP Brewing",
-    "summary": "This module allows to handle product transformation",
+    "summary": "Manage the production of your brewery.",
     "category": "Stock",
     "version": "12.0.1.0.0",
     "author": "Coop IT Easy SCRLfs",
@@ -42,7 +42,6 @@
         "views/stock_move_views.xml",
         "views/sale_views.xml",
         "views/sale_order_report.xml",
-        "views/res_partner_view.xml",
         "views/res_company_view.xml",
     ],
     "demo": [
