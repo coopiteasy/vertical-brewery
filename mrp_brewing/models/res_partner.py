@@ -5,13 +5,10 @@ from odoo import api, fields, models
 _parse_date = fields.Datetime.from_string
 
 
-def _last_year():
-    return dt.datetime.today() - dt.timedelta(days=365)
-
-
 def filter_last_year_orders(partner_orders):
+    last_year = dt.datetime.today() - dt.timedelta(days=365)
     last_year_orders = partner_orders.filtered(
-        lambda po: _parse_date(po.date_order) > _last_year()
+        lambda po: _parse_date(po.date_order) > last_year
     )
     return last_year_orders
 
@@ -38,7 +35,7 @@ def month_delta(d1, d2):
         delta = m
     elif y == 1 and m <= 0 and d < 0:
         delta = 12 - (abs(m) + 1)
-    elif y == 1 and m < 0 and d >= 0:
+    elif y == 1 and m < 0 <= d:
         delta = 12 - abs(m)
     else:
         delta = 12
@@ -57,10 +54,10 @@ def compute_last_order(partner_orders):
 def compute_sale_frequency(partner_orders):
     partner_orders = filter_last_year_orders(partner_orders)
     order_dates = partner_orders.mapped("date_order")
-    order_dates = list(map(_parse_date, order_dates))
-    order_dates = list(sorted(order_dates))
+    order_dates = list(sorted(map(_parse_date, order_dates)))
 
     if len(order_dates) >= 2:
+        # zip creates an iterable of pairs of consecutive dates
         order_date_deltas = [
             d2 - d1 for d1, d2 in zip(order_dates[:-1], order_dates[1:])
         ]
@@ -147,10 +144,10 @@ class ResPartner(models.Model):
             partner_orders = partner.sale_order_ids.filtered(
                 lambda r: r.state not in ["cancel", "draft"]
             )
-            childs_orders = partner.mapped("child_ids.sale_order_ids").filtered(
+            child_orders = partner.mapped("child_ids.sale_order_ids").filtered(
                 lambda r: r.state not in ["cancel", "draft"]
             )
-            partner_orders = partner_orders + childs_orders
+            partner_orders = partner_orders + child_orders
 
             partner.last_order = compute_last_order(partner_orders)
             partner.sale_frequency = compute_sale_frequency(partner_orders)
