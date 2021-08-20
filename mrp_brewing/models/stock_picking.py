@@ -19,6 +19,7 @@ class StockPicking(models.Model):
     )
     date_done = fields.Datetime(readonly=False, states={"done": [("readonly", True)]})
 
+    # todo move to custom module
     @api.multi
     def action_done(self):
         super(StockPicking, self).action_done()
