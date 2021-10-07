@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="stock.view_picking_form" />
         <field name="arch" type="xml">
             <field name="scheduled_date" position="before">
-                <field name="date_done" />
+                <field name="date_stock_move" />
             </field>
         </field>
     </record>

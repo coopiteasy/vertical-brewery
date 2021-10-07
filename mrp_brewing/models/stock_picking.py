@@ -7,17 +7,14 @@ from odoo import api, fields, models
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    date = fields.Datetime(
-        "Creation Date",
-        help="Creation Date, usually the time of the order",
-        index=True,
-        states={
-            "done": [("readonly", False)],
-            "cancel": [("readonly", False)],
-        },
-        track_visibility="onchange",
+    # Used to force the date of the moves to a specific date
+    #   in the xml form view (view_picking_form), the field name
+    #   of date_done(string="Date of Transfer") is overloaded with
+    #   Effective Date. This is confusing.
+    #   The field scheduled_date adds to the confusion...
+    date_stock_move = fields.Datetime(
+        string="Date of Transfer ", states={"done": [("readonly", True)]}
     )
-    date_done = fields.Datetime(readonly=False, states={"done": [("readonly", True)]})
 
     # todo move to custom module
     @api.multi
@@ -25,4 +22,7 @@ class StockPicking(models.Model):
         super(StockPicking, self).action_done()
         for picking in self:
             for move in picking.move_lines:
-                move.date = picking.date_done
+                if picking.date_stock_move:
+                    move.date = picking.date_stock_move
+                else:
+                    move.date = picking.date_done

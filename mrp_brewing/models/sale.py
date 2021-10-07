@@ -55,6 +55,7 @@ class SaleOrder(models.Model):
     @api.multi
     def _compute_delivery_info(self):
         for sale_order in self:
+            # delivery_status and done_date depend on the picking order :/
             if sale_order.state in ["sale", "done"]:
                 done_date = None
                 delivery_status = None
