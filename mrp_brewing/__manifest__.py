@@ -38,7 +38,6 @@
         "views/stock_quant_views.xml",
         "views/stock_production_lot_views.xml",
         "views/stock_pack_operation_views.xml",
-        "views/stock_picking_views.xml",
         "views/stock_move_views.xml",
         "views/sale_views.xml",
         "views/sale_order_report.xml",

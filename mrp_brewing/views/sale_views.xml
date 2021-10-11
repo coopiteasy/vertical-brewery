@@ -36,10 +36,6 @@
             <field name="amount_total" position='after'>
                 <field name="amount_untaxed" />
             </field>
-            <field name="invoice_status" position="after">
-                <field name="delivery_done_date" />
-                <field name="delivery_status" />
-            </field>
         </field>
     </record>
 

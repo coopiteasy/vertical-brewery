@@ -26,24 +26,6 @@ class SaleOrder(models.Model):
             if dates_list:
                 return min(dates_list)
 
-    delivery_done_date = fields.Datetime(
-        compute="_compute_delivery_info",
-        string="Delivery done date",
-        readonly=True,
-    )
-
-    delivery_status = fields.Selection(
-        [
-            ("to_deliver", "To deliver"),
-            ("delivered", "Delivered"),
-            ("cancelled", "Cancelled"),
-        ],
-        compute="_compute_delivery_info",
-        string="Delivery status",
-        search="_search_delivery_status",
-        readonly=True,
-    )
-
     commitment_date = fields.Date(
         string="Commitment Date",
         default=_get_commitment_date,
@@ -51,38 +33,6 @@ class SaleOrder(models.Model):
         "date that you can promise to the customer, based on the Product "
         "Lead Times.",
     )
-
-    @api.multi
-    def _compute_delivery_info(self):
-        for sale_order in self:
-            # delivery_status and done_date depend on the picking order :/
-            if sale_order.state in ["sale", "done"]:
-                done_date = None
-                delivery_status = None
-                for picking in sale_order.picking_ids.sorted(key=lambda r: r.name):
-                    if picking.state == "done":
-                        if delivery_status != "to_deliver":
-                            if picking.date_done > done_date:
-                                done_date = picking.date_done
-                                delivery_status = "delivered"
-                    elif picking.state == "cancel":
-                        if not delivery_status:
-                            done_date = None
-                            delivery_status = "cancelled"
-                    else:
-                        done_date = None
-                        delivery_status = "to_deliver"
-
-                sale_order.delivery_done_date = done_date
-                sale_order.delivery_status = delivery_status
-
-    def _search_delivery_status(self, operator, value):
-        filter_function = {
-            "=": lambda so: so.delivery_status == value,
-            "!=": lambda so: so.delivery_status != value,
-        }
-        sale_orders = self.search([]).filtered(filter_function[operator])
-        return [("id", "in", sale_orders.ids)]
 
     @api.multi
     @api.onchange("pricelist_id")
