@@ -11,6 +11,7 @@
     "license": "AGPL-3",
     "depends": [
         "mrp_brewing",
+        "sale",
     ],
     "data": [
         "data/cron.xml",
