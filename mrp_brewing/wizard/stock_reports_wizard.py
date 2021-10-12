@@ -1,25 +1,23 @@
-from odoo import api, fields, models
+# Copyright 2021 Coop IT Easy SCRL fs
+#   Robin Keunen <robin@coopiteasy.be>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-MODEL_MAP = {
-    "mrp_brewing.action_raw_materials_report": "stock.move",
-    "mrp_brewing.action_finished_products_report": "stock.move",
-    "mrp_brewing.action_brew_register_report": "brew.order",
-}
+from odoo import api, fields, models
 
 
 class StockReport(models.TransientModel):
     _name = "stock.report"
     _description = "Stock Report"
 
-    report_name = fields.Selection(
+    report = fields.Selection(
         [
-            ("mrp_brewing.action_raw_materials_report", "Raw Material Report"),
+            ("raw_materials", "Raw Material Report"),
             (
-                "mrp_brewing.action_finished_products_report",
+                "finished_products",
                 "Finished Product Report",
             ),
             (
-                "mrp_brewing.action_brew_register_report",
+                "brew_register",
                 " Brew Register Report",
             ),
         ],
@@ -29,23 +27,26 @@ class StockReport(models.TransientModel):
     date_from = fields.Date(string="Start Date")
     date_to = fields.Date(string="End Date")
 
-    def _build_contexts(self, data):
-        result = {}
-        result["date_from"] = data["form"]["date_from"] or False
-        result["date_to"] = data["form"]["date_to"] or False
-        result["strict_range"] = True if result["date_from"] else False
-        return result
-
     @api.multi
-    def check_report(self):
+    def create_report(self):
         self.ensure_one()
-        data = {}
-        data["ids"] = self.env.context.get("active_ids", [])
-        data["model"] = MODEL_MAP[self.report_name]
-        data["form"] = self.read(["date_from", "date_to"])[0]
-        used_context = self._build_contexts(data)
-        data["form"]["used_context"] = dict(
-            used_context, lang=self.env.context.get("lang", "en_US")
-        )
-        # return self.env["report"].get_action(self, self.report_name, data=data)
-        return self.env.ref(self.report_name).report_action(self, data=data)
+        if self.report == "raw_materials":
+            action = "mrp_brewing.action_raw_materials_report"
+            recordset = self.env["stock.move"].search(
+                [("state", "=", "done"), ("product_id.raw_material", "=", True)],
+                order="date asc",
+            )
+        elif self.report == "finished_products":
+            action = "mrp_brewing.action_finished_products_report"
+            recordset = self.env["stock.move"].search(
+                [
+                    ("state", "=", "done"),
+                    ("product_id.finished_product", "=", True),
+                ],
+                order="date asc",
+            )
+        else:  # brew_register
+            action = "mrp_brewing.action_brew_register_report"
+            recordset = self.env["brew.order"].search([("state", "=", "done")])
+
+        return self.env.ref(action).report_action(recordset)

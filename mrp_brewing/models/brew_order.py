@@ -98,7 +98,6 @@ class BrewOrder(models.Model):
     @api.multi
     @api.depends("production_order_id")
     def _compute_consumed_lines(self):
-        self.ensure_one()
         for brew_order in self:
             raw_mat_moves = self.env["stock.move"]
             for child_mo in brew_order.production_order_id.child_mo_ids:

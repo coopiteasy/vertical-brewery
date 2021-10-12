@@ -2,149 +2,146 @@
 <odoo>
     <template id="mrp_brewing.stock_finished_products">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <t t-call="web.internal_layout">
-                    <div class="page">
-                        <h2
-                            style="text-align:center"
-                        >Finished Products Stock Report</h2>
-                        <br />
-                        <h3 style="text-align:center">Authorized warehousekeeper n°
-                            <span t-esc="res_company.warehousekeeper_no" />
-                        </h3>
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h2 style="text-align:center">Finished Products Stock Report
+                    </h2>
+                    <br />
+                    <h3 style="text-align:center">Authorized warehousekeeper n°
+                        <span t-esc="res_company.warehousekeeper_no" />
+                    </h3>
 
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                    <th colspan='5'>A. Inputs</th>
-                                    <th colspan='6'>B. Outputs</th>
-                                    <th>C. Stock</th>
-                                </tr>
-                                <tr>
-                                    <td>Date</td>
-                                    <td>Lot Number</td>
-                                    <td>Product</td>
-                                    <td>Quantity</td>
-                                    <td>UoM</td>
-                                    <td>Date</td>
-                                    <td>Origin</td>
-                                    <td>Lot Number</td>
-                                    <td>Product</td>
-                                    <td>Quantity</td>
-                                    <td>UoM</td>
-                                    <td>Quantity left</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr t-foreach="get_stock_moves" t-as="a">
-                                    <t
-                                        t-if="(a.location_id.usage in ['production','inventory','inventory']) and a.location_dest_id.usage == 'internal'"
-                                    >
-                                        <td>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan='5'>stock_move. Inputs</th>
+                                <th colspan='6'>B. Outputs</th>
+                                <th>C. Stock</th>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>Lot Number</td>
+                                <td>Product</td>
+                                <td>Quantity</td>
+                                <td>UoM</td>
+                                <td>Date</td>
+                                <td>Origin</td>
+                                <td>Lot Number</td>
+                                <td>Product</td>
+                                <td>Quantity</td>
+                                <td>UoM</td>
+                                <td>Quantity left</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="stock_move">
+                                <t
+                                    t-if="(stock_move.location_id.usage in ['production','inventory','inventory']) and stock_move.location_dest_id.usage == 'internal'"
+                                >
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-field="stock_move.with_context(tz=stock_move.env.user.tz).date"
+                                        />
+                                    </td>
+                                    <td>
+                                        <t
+                                            t-if="stock_move.raw_material_production_id.brew_order_name"
+                                        >
                                             <span
-                                                t-att-style="style"
-                                                t-field="a.with_context(tz=a.env.user.tz).date"
+                                                t-esc="stock_move.raw_material_production_id.brew_order_name"
                                             />
-                                        </td>
-                                        <td>
-                                            <t
-                                                t-if="a.raw_material_production_id.brew_order_name"
-                                            >
-                                                <span
-                                                    t-esc="a.raw_material_production_id.brew_order_name"
-                                                />
+                                        </t>
+                                        <t
+                                            t-if="not stock_move.raw_material_production_id.brew_order_name and stock_move.lot_numbers"
+                                        >
+                                            <span t-esc="stock_move.lot_numbers" />
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.product_id.name"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.product_uom_qty"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.product_uom.name"
+                                        />
+                                    </td>
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.quantity_after_move"
+                                        />
+                                    </td>
+                                </t>
+                                <t
+                                    t-if="stock_move.location_dest_id.usage in ['inventory','customer','production']"
+                                >
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td />
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-field="stock_move.with_context(tz=stock_move.env.user.tz).date"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span t-esc="stock_move.origin" />
+                                    </td>
+                                    <td>
+                                        <t t-if="stock_move.origin">
+                                            <t t-if="stock_move.lot_numbers">
+                                                <span t-esc="stock_move.lot_numbers" />
                                             </t>
-                                            <t
-                                                t-if="not a.raw_material_production_id.brew_order_name and a.lot_numbers"
-                                            >
-                                                <span t-esc="a.lot_numbers" />
-                                            </t>
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.product_id.name"
-                                            />
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.product_uom_qty"
-                                            />
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.product_uom.name"
-                                            />
-                                        </td>
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.quantity_after_move"
-                                            />
-                                        </td>
-                                    </t>
-                                    <t
-                                        t-if="a.location_dest_id.usage in ['inventory','customer','production']"
-                                    >
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td />
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-field="a.with_context(tz=a.env.user.tz).date"
-                                            />
-                                        </td>
-                                        <td>
-                                            <span t-esc="a.origin" />
-                                        </td>
-                                        <td>
-                                            <t t-if="a.origin">
-                                                <t t-if="a.lot_numbers">
-                                                    <span t-esc="a.lot_numbers" />
-                                                </t>
-                                            </t>
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.product_id.name"
-                                            />
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.product_uom_qty"
-                                            />
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.product_uom.name"
-                                            />
-                                        </td>
-                                        <td>
-                                            <span
-                                                t-att-style="style"
-                                                t-esc="a.quantity_after_move"
-                                            />
-                                        </td>
-                                    </t>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </t>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.product_id.name"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.product_uom_qty"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.product_uom.name"
+                                        />
+                                    </td>
+                                    <td>
+                                        <span
+                                            t-att-style="style"
+                                            t-esc="stock_move.quantity_after_move"
+                                        />
+                                    </td>
+                                </t>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </t>
         </t>
     </template>

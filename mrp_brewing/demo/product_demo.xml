@@ -23,7 +23,7 @@
             eval="[(6, 0, [ref('stock.route_warehouse0_mto'),
                         ref('mrp.route_warehouse0_manufacture')])]"
         />
-
+        <field name="finished_product" eval="True" />
     </record>
 
     <record id="demo_product_product_green_beer" model="product.product">
@@ -43,6 +43,8 @@
             eval="[(6, 0, [ref('stock.route_warehouse0_mto'),
                         ref('mrp.route_warehouse0_manufacture')])]"
         />
+        <field name="finished_product" eval="True" />
+
     </record>
     <record id="demo_product_product_bottle" model="product.product">
         <field name="name">Long neck bottle</field>
@@ -54,8 +56,8 @@
         <field name="uom_po_id" ref="uom.product_uom_unit" />
         <field name="default_code">bottle_ln</field>
         <field name="tracking">none</field>
-
     </record>
+
     <record id="demo_product_product_cap" model="product.product">
         <field name="name">Cap</field>
         <field name="categ_id" ref="product.product_category_consumable" />
@@ -67,6 +69,7 @@
         <field name="default_code">cap</field>
         <field name="tracking">none</field>
     </record>
+
     <record id="demo_product_product_sticker" model="product.product">
         <field name="name">Sticker</field>
         <field name="categ_id" ref="product.product_category_consumable" />
@@ -105,6 +108,7 @@
         <field name="uom_id" ref="uom.product_uom_gram" />
         <field name="uom_po_id" ref="uom.product_uom_gram" />
         <field name="tracking">lot</field>
+        <field name="raw_material" eval="True" />
     </record>
 
     <record id="demo_product_product_malt" model="product.product">
@@ -116,6 +120,8 @@
         <field name="uom_id" ref="uom.product_uom_kgm" />
         <field name="uom_po_id" ref="uom.product_uom_kgm" />
         <field name="tracking">lot</field>
+        <field name="raw_material" eval="True" />
+
     </record>
 
     <record id="demo_product_product_water" model="product.product">

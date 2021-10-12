@@ -6,19 +6,18 @@
         <field name="arch" type="xml">
         <form string="Report Options">
             <group>
-                <field name="report_name" />
+                <field name="report" />
             </group>
 
             <footer>
                 <button
-                        name="check_report"
+                        name="create_report"
                         string="Print"
                         type="object"
                         default_focus="1"
-                        class="oe_highlight"
+                        class="btn btn-primary"
                     />
-                or
-                <button string="Cancel" class="oe_link" special="cancel" />
+                <button string="Cancel" class="btn" special="cancel" />
             </footer>
         </form>
         </field>
