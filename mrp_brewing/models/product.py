@@ -6,6 +6,7 @@ from odoo import api, fields, models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
+    # fixme never used
     @api.multi
     def compute_master_mo_candidates(self):
         self.ensure_one()

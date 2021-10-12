@@ -5,6 +5,8 @@ from odoo import api, fields, models
 
 
 class MrpProduction(models.Model):
+    """ Manufacturing Orders """
+
     _inherit = "mrp.production"
 
     _order = "date_planned_start desc"  # initially "date_planned_start asc,id"
@@ -12,40 +14,59 @@ class MrpProduction(models.Model):
     # fixme lot_number not used
     lot_number = fields.Many2one("stock.production.lot", string="Lot Number")
 
-    brew_number = fields.Char(string="Brew Number", compute="_compute_brew_number")
+    brew_number = fields.Char(
+        string="Brew Number", compute="_compute_brew_number", store=True
+    )
     brew_order_name = fields.Char(
         compute="_compute_brew_order_name", String="Brew Order Name"
     )
+    # actually a One2one relation
     brew_orders = fields.One2many(
-        "brew.order", "production_order_id", string="Brew Order", readonly=True
+        comodel_name="brew.order",
+        inverse_name="production_order_id",
+        string="Brew Order",
+        readonly=True,
     )
+    # todo remove master_mo_id and rely only on brew order as parent ?
     master_mo_id = fields.Many2one(
-        "mrp.production",
-        domain=[
-            ("product_tmpl_id.is_brewable", "=", True),
-            ("state", "not in", ["draft", "cancel"]),
-        ],
-        string="Master production order",
+        comodel_name="mrp.production",
+        string="Master Manufacturing Order",
     )
     child_mo_ids = fields.One2many(
-        "mrp.production", "master_mo_id", string="Childs production order"
+        comodel_name="mrp.production",
+        inverse_name="master_mo_id",
+        string="Children production order",
     )
+
+    @api.model
+    def create(self, vals):
+        mo = super().create(vals)
+        if mo.master_mo_id:
+            return mo
+
+        parent_mo = self.search([("name", "=", mo.origin)])
+        if not parent_mo:
+            mo.master_mo_id = False
+        elif parent_mo.master_mo_id:
+            mo.master_mo_id = parent_mo.master_mo_id
+        else:
+            mo.master_mo_id = parent_mo
+
+        return mo
 
     @api.multi
     @api.depends(
         "master_mo_id",
         "master_mo_id.brew_number",
-        "brew_orders.state",
         "brew_orders.brew_number",
-        "brew_orders.start_date",
     )
     def _compute_brew_number(self):
         for mo in self:
             if mo.master_mo_id:
                 mo.brew_number = mo.master_mo_id.brew_number
             else:
-                for brew_order in mo.brew_orders:
-                    mo.brew_number = brew_order.brew_number
+                # brew_orders is a one2one relation
+                mo.brew_number = mo.brew_orders.brew_number
 
     @api.multi
     @api.depends(
@@ -57,11 +78,7 @@ class MrpProduction(models.Model):
     )
     def _compute_brew_order_name(self):
         for mo in self:
-            if mo.master_mo_id:
-                master_mo = mo.master_mo_id
-            else:
-                master_mo = mo
-
+            master_mo = mo.master_mo_id or mo
             if master_mo.brew_orders:
                 mo.brew_order_name = master_mo.brew_orders[0].name
             else:
@@ -77,21 +94,3 @@ class MrpProduction(models.Model):
                 name = record.name
             res.append((record.id, name))
         return res
-
-    @api.multi
-    def open_produce_product(self):
-        # fixme: the master_mo_id assgnment could ne done at mo
-        #   creation directly since we already have the origin field filled
-        if not self.product_id.is_brewable and not self.master_mo_id:
-            parent_mo = self.search([("name", "=", self.origin)])
-            master_mo = False
-            while len(parent_mo) > 0:
-                master_mo = parent_mo
-                parent_mo = self.search([("name", "=", parent_mo.origin)])
-            self.write(
-                {
-                    "brew_number": master_mo.brew_number,
-                    "master_mo_id": master_mo.id,
-                }
-            )
-        return super(MrpProduction, self).open_produce_product()
