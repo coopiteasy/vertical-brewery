@@ -24,7 +24,6 @@
         "report/report_stock_finished_products.xml",
         "report/report_brew_register.xml",
         "report/mrp_brewing_report.xml",
-        "report/report_layout.xml",
         "wizard/stock_reports_view.xml",
         "wizard/recompute_qty_after_move_view.xml",
         "views/product_template_views.xml",
