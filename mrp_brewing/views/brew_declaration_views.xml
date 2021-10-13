@@ -7,7 +7,8 @@
             <tree string="Brew Declarations">
                 <field name="brew_declaration_number" />
                 <field name="request_date" />
-                <field name="state" invisible="1" />
+                <field name="state" />
+                <field name="brew_orders" widget="many2many_tags" />
             </tree>
         </field>
     </record>
@@ -27,7 +28,7 @@
                     <!-- FIXME:`sent` and `sale` not in `state` -->
                     <button
                         name="action_cancel"
-                        states="draft,sent,sale"
+                        states="draft"
                         type="object"
                         string="Cancel"
                     />
