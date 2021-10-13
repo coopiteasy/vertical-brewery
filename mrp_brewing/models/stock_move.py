@@ -32,20 +32,12 @@ class StockMove(models.Model):
     @api.multi
     @api.depends("move_line_ids.package_id.quant_ids")
     def _compute_lot_numbers(self):
-
         for stock_move in self:
-            lot_numbers = []
-            # for qid in stock_move.quant_ids:
-            # package_id = Source Package ;
-            # result_package_id = Destination Package
-            for qid in stock_move.mapped("move_line_ids.package_id.quant_ids"):
-
-                if (
-                    qid.lot_id.display_name
-                    and qid.lot_id.display_name not in lot_numbers
-                ):
-                    lot_numbers.append(qid.lot_id.display_name)
-            stock_move.lot_numbers = "/".join(lot_numbers)
+            if stock_move.state != "done":
+                stock_move.lot_numbers = False
+            else:
+                lots = stock_move.move_line_ids.mapped("lot_id")
+                stock_move.lot_numbers = "/".join(lots.mapped("name"))
 
     @api.multi
     @api.depends("location_id", "location_dest_id")

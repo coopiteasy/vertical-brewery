@@ -52,12 +52,11 @@ class SaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    # FIXME: cf. _compute_stock_product
-    # product_lot_ids = fields.Many2many(
-    #     "stock.production.lot",
-    #     string="Stock Product Lot",
-    #     compute="_compute_stock_product",
-    # )
+    product_lot_ids = fields.Many2many(
+        "stock.production.lot",
+        string="Stock Product Lot",
+        compute="_compute_stock_product",
+    )
     effective_date = fields.Date(
         related="order_id.effective_date", string="Effective Date"
     )
@@ -68,17 +67,8 @@ class SaleOrderLine(models.Model):
         done stock moves related to its procurements
         """
 
-        # FIXME: in 11.0, `procurement` has been merged in `stock`
-        # - model `procurement.order` doesn't exist anymore
-        # - simply delete?
-        # - could `move_ids` and `_compute_qty_delivered` be used instead?
-        #   (https://github.com/OCA/OCB/blob/12.0/addons/sale_stock/models/sale_order.py#L186)  # noqa
-
-        for line in self:
-            product_lot_ids = []
-            for move in line.procurement_ids.mapped("move_ids").filtered(
-                lambda r: r.state == "done" and not r.scrapped
-            ):
-                if move.location_dest_id.usage == "customer" and len(move.lot_ids) > 0:
-                    product_lot_ids.append(move.lot_ids.ids[0])
-            line.product_lot_ids = product_lot_ids
+        for so_line in self:
+            moves = so_line.move_ids.filtered(lambda m: m.state == "done")
+            if moves and moves.move_line_ids:
+                lots = moves.move_line_ids.mapped("lot_id")
+                so_line.product_lot_ids = lots
