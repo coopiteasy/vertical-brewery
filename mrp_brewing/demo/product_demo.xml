@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="demo_sequence_green_beer" model="ir.sequence">
+        <field name="name">Roublarde sequence</field>
+        <field eval="1" name="number_next" />
+        <field eval="1" name="number_increment" />
+        <field name="padding">3</field>
+    </record>
+
+    <record id="demo_product_product_roublarde" model="product.product">
+        <field name="name">Roublarde 33 cL</field>
+        <field name="categ_id" ref="product.product_category_3" />
+        <field name="standard_price">2</field>
+        <field name="list_price">3</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
+        <field name="description">A delicious amber beer.</field>
+        <field name="default_code">ROU</field>
+        <field name="tracking">lot</field>
+        <field
+            name="route_ids"
+            eval="[(6, 0, [ref('stock.route_warehouse0_mto'),
+                        ref('mrp.route_warehouse0_manufacture')])]"
+        />
+        <field name="finished_product" eval="True" />
+    </record>
+
+    <record id="demo_product_product_green_beer" model="product.product">
+        <field name="name">Roublarde Green Beer</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">1</field>
+        <field name="list_price">1</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_litre" />
+        <field name="uom_po_id" ref="uom.product_uom_litre" />
+        <field name="default_code">ROU</field>
+        <field name="tracking">lot</field>
+        <field name="is_brewable" eval="True" />
+        <field name="brew_product_sequence" ref="demo_sequence_green_beer" />
+        <field
+            name="route_ids"
+            eval="[(6, 0, [ref('stock.route_warehouse0_mto'),
+                        ref('mrp.route_warehouse0_manufacture')])]"
+        />
+        <field name="finished_product" eval="True" />
+
+    </record>
+    <record id="demo_product_product_bottle" model="product.product">
+        <field name="name">Long neck bottle</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">2</field>
+        <field name="list_price">3</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
+        <field name="default_code">bottle_ln</field>
+        <field name="tracking">none</field>
+    </record>
+
+    <record id="demo_product_product_cap" model="product.product">
+        <field name="name">Cap</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">0.02</field>
+        <field name="list_price">0.03</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
+        <field name="default_code">cap</field>
+        <field name="tracking">none</field>
+    </record>
+
+    <record id="demo_product_product_sticker" model="product.product">
+        <field name="name">Sticker</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">0.001</field>
+        <field name="list_price">0.001</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
+        <field name="default_code">sticker</field>
+        <field name="tracking">none</field>
+    </record>
+
+    <record id="demo_product_product_beer_wort" model="product.product">
+        <field name="name">Roublarde Wort</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">1</field>
+        <field name="list_price">1</field>
+        <field name="type">product</field>
+        <field name="default_code">ROU</field>
+        <field name="uom_id" ref="uom.product_uom_litre" />
+        <field name="uom_po_id" ref="uom.product_uom_litre" />
+        <field name="tracking">lot</field>
+        <field
+            name="route_ids"
+            eval="[(6, 0, [ref('stock.route_warehouse0_mto'),
+                        ref('mrp.route_warehouse0_manufacture')])]"
+        />
+    </record>
+
+    <record id="demo_product_product_yeast" model="product.product">
+        <field name="name">yeast</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">2</field>
+        <field name="list_price">3</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_gram" />
+        <field name="uom_po_id" ref="uom.product_uom_gram" />
+        <field name="tracking">lot</field>
+        <field name="raw_material" eval="True" />
+    </record>
+
+    <record id="demo_product_product_malt" model="product.product">
+        <field name="name">Malt</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">2</field>
+        <field name="list_price">3</field>
+        <field name="type">product</field>
+        <field name="uom_id" ref="uom.product_uom_kgm" />
+        <field name="uom_po_id" ref="uom.product_uom_kgm" />
+        <field name="tracking">lot</field>
+        <field name="raw_material" eval="True" />
+
+    </record>
+
+    <record id="demo_product_product_water" model="product.product">
+        <field name="name">Water</field>
+        <field name="categ_id" ref="product.product_category_consumable" />
+        <field name="standard_price">0.001</field>
+        <field name="list_price">0</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_litre" />
+        <field name="uom_po_id" ref="uom.product_uom_litre" />
+        <field name="tracking">none</field>
+        <field name="sale_ok" eval="False" />
+        <field
+            name="route_ids"
+            eval="[(6, 0, [ref('stock.route_warehouse0_mto'),
+                           ref('purchase_stock.route_warehouse0_buy')])]"
+        />
+    </record>
+
+    <record id="demo_product_supplierinfo_water" model="product.supplierinfo">
+        <field
+            name="product_tmpl_id"
+            ref="demo_product_product_water_product_template"
+        />
+        <field name="name" ref="base.res_partner_12" />
+        <field name="sequence">1</field>
+        <field name="delay">1</field>
+        <field name="min_qty">10000</field>
+        <field name="price">0.001</field>
+    </record>
+
+</odoo>

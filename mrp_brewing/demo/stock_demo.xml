@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="demo_lot_yeast" model="stock.production.lot">
+        <field name="name">YEAST-000001</field>
+        <field name="product_id" ref="demo_product_product_yeast" />
+    </record>
+    <record id="demo_lot_malt" model="stock.production.lot">
+        <field name="name">MALT-000001</field>
+        <field name="product_id" ref="demo_product_product_malt" />
+    </record>
+
+    <record id="demo_stock_inventory_0" model="stock.inventory">
+        <field name="name">Brewery Inventory</field>
+    </record>
+
+    <record id="demo_stock_inventory_line_1" model="stock.inventory.line">
+        <field name="product_id" ref="demo_product_product_cap" />
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="inventory_id" ref="demo_stock_inventory_0" />
+        <field name="product_qty">10000</field>
+        <field name="location_id" ref="stock.stock_location_stock" />
+    </record>
+
+    <record id="demo_stock_inventory_line_2" model="stock.inventory.line">
+        <field name="product_id" ref="demo_product_product_bottle" />
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="inventory_id" ref="demo_stock_inventory_0" />
+        <field name="product_qty">10000</field>
+        <field name="location_id" ref="stock.stock_location_stock" />
+    </record>
+
+    <record id="demo_stock_inventory_line_3" model="stock.inventory.line">
+        <field name="product_id" ref="demo_product_product_sticker" />
+        <field name="product_uom_id" ref="uom.product_uom_unit" />
+        <field name="inventory_id" ref="demo_stock_inventory_0" />
+        <field name="product_qty">10000</field>
+        <field name="location_id" ref="stock.stock_location_stock" />
+    </record>
+
+    <record id="demo_stock_inventory_line_4" model="stock.inventory.line">
+        <field name="product_id" ref="demo_product_product_yeast" />
+        <field name="product_uom_id" ref="uom.product_uom_gram" />
+        <field name="inventory_id" ref="demo_stock_inventory_0" />
+        <field name="product_qty">5000</field>
+        <field name="location_id" ref="stock.stock_location_stock" />
+        <field name="prod_lot_id" ref="demo_lot_yeast" />
+    </record>
+
+    <record id="demo_stock_inventory_line_5" model="stock.inventory.line">
+        <field name="product_id" ref="demo_product_product_malt" />
+        <field name="product_uom_id" ref="uom.product_uom_kgm" />
+        <field name="inventory_id" ref="demo_stock_inventory_0" />
+        <field name="product_qty">200</field>
+        <field name="location_id" ref="stock.stock_location_stock" />
+        <field name="prod_lot_id" ref="demo_lot_malt" />
+    </record>
+
+</odoo>
