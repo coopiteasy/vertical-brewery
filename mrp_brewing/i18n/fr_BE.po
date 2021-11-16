@@ -180,11 +180,6 @@ msgid "Cancelled"
 msgstr "Annulé"
 
 #. module: mrp_brewing
-#: model:ir.model.fields,field_description:mrp_brewing.field_brew_order_child_brew_orders
-msgid "Child brew order"
-msgstr "Odres de brassage enfants"
-
-#. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_mrp_production_child_mo_ids
 msgid "Childs production order"
 msgstr "Ordres de production enfants"
@@ -727,11 +722,6 @@ msgstr "confirmer"
 #: model:ir.ui.view,arch_db:mrp_brewing.raw_materials_report_view
 msgid "or"
 msgstr "ou"
-
-#. module: mrp_brewing
-#: model:ir.model.fields,field_description:mrp_brewing.field_brew_order_parent_brew_order_id
-msgid "parent brew order"
-msgstr "Ordre de brassage parent"
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report_report_name
