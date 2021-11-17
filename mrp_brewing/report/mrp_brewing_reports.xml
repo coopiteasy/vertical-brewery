@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="paperformat_A4_landscape" model="report.paperformat">
+        <field name="name">Leaves Summary</field>
+        <field name="default" eval="True" />
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <report
+        id="action_raw_materials_report"
+        model="stock.move"
+        string="Raw materials stock report"
+        report_type="qweb-pdf"
+        name="mrp_brewing.stock_raw_materials"
+        file="mrp_brewing.stock_raw_materials"
+        paperformat="mrp_brewing.paperformat_A4_landscape"
+    />
+    <report
+        id="action_finished_products_report"
+        model="stock.move"
+        string="Finished products stock report"
+        report_type="qweb-pdf"
+        name="mrp_brewing.stock_finished_products"
+        file="mrp_brewing.stock_finished_products"
+        paperformat="mrp_brewing.paperformat_A4_landscape"
+    />
+    <report
+        id="action_brew_register_report"
+        model="brew.order"
+        string="Brew Register Report"
+        report_type="qweb-pdf"
+        name="mrp_brewing.brew_register"
+        file="mrp_brewing.brew_register"
+        paperformat="mrp_brewing.paperformat_A4_landscape"
+    />
+</odoo>
