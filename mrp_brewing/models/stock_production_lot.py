@@ -28,8 +28,3 @@ class StockProductionLot(models.Model):
             quantity = sum(quants.mapped("quantity"))
             lot.qty_available = quantity
             lot.has_stock = quantity > 0
-
-    @api.model
-    def _batch_compute_qty_available(self):
-        lots = self.env["stock.production.lot"].search([])
-        lots._compute_qty_available()
