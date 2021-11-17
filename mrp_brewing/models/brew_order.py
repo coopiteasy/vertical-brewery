@@ -133,6 +133,7 @@ class BrewOrder(models.Model):
 
     @api.multi
     def action_confirm(self):
+        self.ensure_one()
         bom_id = self.env["mrp.bom"]._bom_find(product=self.product_id)
 
         if not bom_id:
