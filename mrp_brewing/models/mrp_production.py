@@ -30,7 +30,7 @@ class MrpProduction(models.Model):
     # todo remove master_mo_id and rely only on brew order as parent ?
     master_mo_id = fields.Many2one(
         comodel_name="mrp.production",
-        string="Master Manufacturing Order",
+        string="Master MO",
     )
     child_mo_ids = fields.One2many(
         comodel_name="mrp.production",
@@ -40,18 +40,19 @@ class MrpProduction(models.Model):
 
     @api.model
     def create(self, vals):
+        """
+        Sets the eldest MO as the master_mo_id.
+        A parent MO is a Mo which is the "origin" of current MO.
+        In the case of mrp_brewing, eldest MO is created by the
+        brew order."""
+
         mo = super().create(vals)
-        if mo.master_mo_id:
-            return mo
+        master_mo = parent_mo = self.search([("name", "=", mo.origin)], limit=1)
+        while parent_mo:
+            master_mo = parent_mo
+            parent_mo = self.search([("name", "=", parent_mo.origin)], limit=1)
 
-        parent_mo = self.search([("name", "=", mo.origin)])
-        if not parent_mo:
-            mo.master_mo_id = False
-        elif parent_mo.master_mo_id:
-            mo.master_mo_id = parent_mo.master_mo_id
-        else:
-            mo.master_mo_id = parent_mo
-
+        mo.master_mo_id = master_mo.id
         return mo
 
     @api.multi

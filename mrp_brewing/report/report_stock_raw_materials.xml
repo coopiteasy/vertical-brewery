@@ -13,7 +13,7 @@
                     <table class="table table-condensed">
                         <thead>
                             <tr>
-                                <th colspan='6'>stock_move. Inputs</th>
+                                <th colspan='6'>A. Inputs</th>
                                 <th colspan='6'>B. Outputs</th>
                                 <th>C. Stock</th>
                             </tr>

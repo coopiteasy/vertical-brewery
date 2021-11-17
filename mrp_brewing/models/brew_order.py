@@ -63,10 +63,6 @@ class BrewOrder(models.Model):
         compute="_compute_consumed_lines",
     )
     bom = fields.Many2one("mrp.bom", string="Bill of material", compute="_compute_bom")
-    parent_brew_order_id = fields.Many2one("brew.order", string="parent brew order")
-    child_brew_orders = fields.One2many(
-        "brew.order", "parent_brew_order_id", string="Child brew order"
-    )
     used_vessels_tank = fields.Char(string="Used vessels for work in tank")
     dry_extract = fields.Float(string="% dry extract")
     real_bulk_wort = fields.Float(string="Real bulk of wort")
@@ -137,6 +133,7 @@ class BrewOrder(models.Model):
 
     @api.multi
     def action_confirm(self):
+        self.ensure_one()
         bom_id = self.env["mrp.bom"]._bom_find(product=self.product_id)
 
         if not bom_id:
@@ -148,19 +145,13 @@ class BrewOrder(models.Model):
                 _("No product sequence found for %s.") % self.product_id.name
             )
 
-        if self.parent_brew_order_id:
-            if self.parent_brew_order_id.state != "done":
-                raise UserError(_("You must first confirm the parent brew order."))
-        else:
-            brew_beer_number = self.product_id.brew_product_sequence.next_by_id()
-            brew_year_sequence = self.env["ir.sequence"].search(
-                [("code", "=", "brew.year.sequence")]
-            )
-            brew_year_number = 0
-            if self.get_brew_number:
-                brew_year_number = brew_year_sequence.next_by_id()
-        # fixme what happens if self.parent_brew_order_id and
-        #   self.parent_brew_order_id.state == "done" ?
+        brew_beer_number = self.product_id.brew_product_sequence.next_by_id()
+        brew_year_sequence = self.env["ir.sequence"].search(
+            [("code", "=", "brew.year.sequence")]
+        )
+        brew_year_number = 0
+        if self.get_brew_number:
+            brew_year_number = brew_year_sequence.next_by_id()
         self.write(
             {
                 "state": "done",
