@@ -69,6 +69,6 @@ class SaleOrderLine(models.Model):
 
         for so_line in self:
             moves = so_line.move_ids.filtered(lambda m: m.state == "done")
-            if moves and moves.move_line_ids:
-                lots = moves.move_line_ids.mapped("lot_id")
-                so_line.product_lot_ids = lots
+            move_line_ids = moves.mapped("move_line_ids")
+            lots = move_line_ids.mapped("lot_id")
+            so_line.product_lot_ids = lots
