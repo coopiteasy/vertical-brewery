@@ -14,6 +14,7 @@
     "data": [
         "views/sale_order_views.xml",
         "views/stock_picking_views.xml",
+        "reports/report_deliveryslip.xml",
     ],
     "installable": True,
 }

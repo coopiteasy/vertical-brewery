@@ -15,8 +15,8 @@ class StockPicking(models.Model):
     def action_done(self):
         super(StockPicking, self).action_done()
         for picking in self:
+            if not picking.date_stock_move:
+                picking.date_stock_move = fields.Datetime.now()
+
             for move in picking.move_lines:
-                if picking.date_stock_move:
-                    move.date = picking.date_stock_move
-                else:
-                    move.date = picking.date_done
+                move.date = picking.date_stock_move
