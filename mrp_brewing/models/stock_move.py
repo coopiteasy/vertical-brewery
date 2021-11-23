@@ -30,7 +30,7 @@ class StockMove(models.Model):
                 move.quantity_after_move = move.product_id.qty_available
 
     @api.multi
-    @api.depends("move_line_ids.package_id.quant_ids")
+    @api.depends("move_line_ids.lot_id")
     def _compute_lot_numbers(self):
         for stock_move in self:
             if stock_move.state != "done":
