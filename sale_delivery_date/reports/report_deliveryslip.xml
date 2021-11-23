@@ -5,11 +5,18 @@
 -->
 <odoo>
     <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
-        <xpath expr="//span[@t-field='o.date_done']" position="attributes">
-            <attribute name="invisible">True</attribute>
-        </xpath>
-        <xpath expr="//span[@t-field='o.date_done']" position="after">
-            <span t-field="o.date_stock_move" />
+        <!-- Could not build the predicate to catch  <t t-if="o.state != 'done'">
+                nor making the <span t-field="o.date_done"/>  invisible so replacing the whole
+                <td name="td_sched_date"> -->
+        <xpath expr="//td[@name='td_sched_date']" position="replace">
+            <td name="td_sched_date">
+                <t t-if="o.state == 'done'">
+                    <span t-field="o.date_stock_move" />
+                </t>
+                <t t-if="o.state != 'done'">
+                    <span t-field="o.scheduled_date" />
+                </t>
+            </td>
         </xpath>
     </template>
 </odoo>
