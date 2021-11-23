@@ -1,39 +1,15 @@
-# Part of Open Architechts Consulting sprl. See LICENSE file for full
-# copyright and licensing details.
-from datetime import datetime, timedelta
+# Copyright 2021 Coop IT Easy SCRL fs
+#   Houssine Bakkali <houssine@coopiteasy.be>
+#   Robin Keunen <robin@coopiteasy.be>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    @api.multi
-    def _get_commitment_date(self):
-        """Compute the commitment date"""
-        for order in self:
-            dates_list = []
-            order_datetime = datetime.strptime(
-                order.date_order, DEFAULT_SERVER_DATE_FORMAT
-            )
-            for line in order.order_line:
-                if line.state == "cancel":
-                    continue
-                dt = order_datetime + timedelta(days=line.customer_lead or 0.0)
-                dt_s = dt.strftime(DEFAULT_SERVER_DATE_FORMAT)
-                dates_list.append(dt_s)
-            if dates_list:
-                return min(dates_list)
-
-    commitment_date = fields.Date(
-        string="Commitment Date",
-        default=_get_commitment_date,
-        help="Date by which the products are sure to be delivered. This is a "
-        "date that you can promise to the customer, based on the Product "
-        "Lead Times.",
-    )
-
+    # todo move to custom module
     @api.multi
     @api.onchange("pricelist_id")
     def onchange_price_list(self):
@@ -42,6 +18,7 @@ class SaleOrder(models.Model):
         else:
             self.note = self.pricelist_id.particular_conditions
 
+    # todo move to custom module
     @api.multi
     @api.onchange("partner_id")
     def onchange_partner_id(self):
