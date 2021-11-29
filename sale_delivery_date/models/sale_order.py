@@ -57,9 +57,11 @@ class SaleOrder(models.Model):
                 date_stock_move = None
                 delivery_status = None
             elif all(p.state == "done" for p in pickings):
-                max_date_stock_move = max(p.date_stock_move for p in pickings)
-                if max_date_stock_move:
-                    date_stock_move = max_date_stock_move
+                date_stock_moves = [
+                    p.date_stock_move for p in pickings if p.date_stock_move
+                ]
+                if date_stock_moves:
+                    date_stock_move = max(date_stock_moves)
                 else:
                     date_stock_move = max(p.date_done for p in pickings)
                 delivery_status = "delivered"
