@@ -11,14 +11,17 @@ class MrpProduction(models.Model):
 
     _order = "date_planned_start desc"  # initially "date_planned_start asc,id"
 
-    # fixme lot_number not used
-    lot_number = fields.Many2one("stock.production.lot", string="Lot Number")
-
+    lot_ids = fields.Many2many(
+        string="Finished Product Lot",
+        comodel_name="stock.production.lot",
+        compute="_compute_lot_ids",
+        help="Lots of produced product.",
+    )
     brew_number = fields.Char(
         string="Brew Number", compute="_compute_brew_number", store=True
     )
     brew_order_name = fields.Char(
-        compute="_compute_brew_order_name", String="Brew Order Name"
+        compute="_compute_brew_order_name", string="Brew Order Name"
     )
     # actually a One2one relation
     brew_orders = fields.One2many(
@@ -84,6 +87,15 @@ class MrpProduction(models.Model):
                 mo.brew_order_name = master_mo.brew_orders[0].name
             else:
                 mo.brew_order_name = "/"
+
+    @api.multi
+    @api.depends("finished_move_line_ids.lot_produced_id")
+    def _compute_lot_ids(self):
+        for mo in self:
+            target_product_move_lines = mo.finished_move_line_ids.filtered(
+                lambda sml: sml.product_id == mo.product_id
+            )
+            mo.lot_ids = target_product_move_lines.mapped("lot_id")
 
     @api.multi
     def name_get(self):

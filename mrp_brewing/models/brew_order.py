@@ -55,14 +55,20 @@ class BrewOrder(models.Model):
         states={"draft": [("readonly", False)]},
     )
     production_order_id = fields.Many2one(
-        "mrp.production", string="Production Order", readonly=True
+        comodel_name="mrp.production", string="Production Order", readonly=True
+    )
+    finished_product_lot_ids = fields.Many2many(
+        string="Finished Product Lots",
+        related="production_order_id.lot_ids",
     )
     consumed_lines = fields.One2many(
-        "stock.move",
+        comodel_name="stock.move",
         string="Consumed lines",
         compute="_compute_consumed_lines",
     )
-    bom = fields.Many2one("mrp.bom", string="Bill of material", compute="_compute_bom")
+    bom = fields.Many2one(
+        comodel_name="mrp.bom", string="Bill of material", compute="_compute_bom"
+    )
     used_vessels_tank = fields.Char(string="Used vessels for work in tank")
     dry_extract = fields.Float(string="% dry extract")
     real_bulk_wort = fields.Float(string="Real bulk of wort")
