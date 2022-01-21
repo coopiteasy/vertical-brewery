@@ -31,6 +31,10 @@ class MrpProduction(models.Model):
     master_mo_id = fields.Many2one(
         comodel_name="mrp.production",
         string="Master MO",
+        domain=[
+            ("product_tmpl_id.is_brewable", "=", True),
+            ("state", "not in", ["draft", "cancel"]),
+        ],
     )
     child_mo_ids = fields.One2many(
         comodel_name="mrp.production",
