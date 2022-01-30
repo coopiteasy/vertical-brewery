@@ -143,16 +143,21 @@
                                             </td>
                                             <td>
                                                 <span
+                                                    t-esc="','.join(brew_order.finished_product_lot_ids.mapped('name'))"
+                                                />
+                                            </td>
+                                            <td>
+                                                <span
                                                     t-esc="brew_order.green_beer_volume"
                                                 />
+                                            </td>
+                                            <td>
+                                                <span t-esc="brew_order.output_wort" />
                                             </td>
                                             <td>
                                                 <span
                                                     t-esc="brew_order.sugar_quantity"
                                                 />
-                                            </td>
-                                            <td>
-                                                <span t-esc="brew_order.output_wort" />
                                             </td>
                                             <td>
                                                 <span t-esc="brew_order.output_beer" />
@@ -186,6 +191,7 @@
                                                     t-esc="consumed_line.product_uom.name"
                                                 />
                                             </td>
+                                            <td />
                                             <td />
                                             <td />
                                             <td />

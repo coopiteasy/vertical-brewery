@@ -66,7 +66,11 @@
                             <field name="brew_declaration_id" />
                             <field name="product_id" />
                             <field name="bom" />
-                            <field name="production_order_id" readonly="True" />
+                            <field name="production_order_id" />
+                            <field
+                                name="finished_product_lot_ids"
+                                widget="many2many_tags"
+                            />
                         </group>
                         <group>
                             <field name="start_date" />

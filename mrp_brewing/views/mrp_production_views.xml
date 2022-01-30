@@ -20,6 +20,7 @@
                 <field name="brew_orders" invisible="True" />
                 <field name="master_mo_id" />
                 <field name="brew_number" />
+                <field name="lot_ids" widget="many2many_tags" />
             </field>
         </field>
     </record>
