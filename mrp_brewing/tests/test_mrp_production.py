@@ -13,3 +13,19 @@ class TestMRPProduction(TestMRPBrewingBase):
         self.assertFalse(master_mo.master_mo_id)
         # should generate MO for Roublarde Wort
         self.assertEquals(len(master_mo.child_mo_ids), 1)
+        # should set the master_mo_id of the children
+        self.assertEquals(master_mo.child_mo_ids.master_mo_id, master_mo)
+
+    def test_manual_master_manufacturing_order(self):
+        self.brew_order.action_confirm()
+        master_mo = self.brew_order.production_order_id
+        # create a new mrp.production, setting the master manufacturing order
+        # manually
+        mrp_production = self.mrp_production_model.create({
+            "product_id": self.green_beer_product.id,
+            "product_qty": 1,
+            "product_uom_id": self.uom_litre.id,
+            "bom_id": self.brew_order.bom.id,
+            "master_mo_id": master_mo.id,
+        })
+        self.assertEquals(mrp_production.master_mo_id, master_mo)

@@ -44,18 +44,23 @@ class MrpProduction(models.Model):
     @api.model
     def create(self, vals):
         """
-        Sets the eldest MO as the master_mo_id.
+        If no master_mo_id is provided, set the eldest MO as the master_mo_id.
         A parent MO is a Mo which is the "origin" of current MO.
         In the case of mrp_brewing, eldest MO is created by the
         brew order."""
 
         mo = super().create(vals)
-        master_mo = parent_mo = self.search([("name", "=", mo.origin)], limit=1)
-        while parent_mo:
-            master_mo = parent_mo
-            parent_mo = self.search([("name", "=", parent_mo.origin)], limit=1)
+        master_mo_id = vals.get("master_mo_id")
 
-        mo.master_mo_id = master_mo.id
+        if not master_mo_id:
+            master_mo = parent_mo = self.search([("name", "=", mo.origin)], limit=1)
+            while parent_mo:
+                master_mo = parent_mo
+                parent_mo = self.search([("name", "=", parent_mo.origin)], limit=1)
+
+            master_mo_id = master_mo.id
+
+        mo.master_mo_id = master_mo_id
         return mo
 
     @api.multi
