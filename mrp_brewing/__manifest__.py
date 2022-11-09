@@ -1,12 +1,12 @@
 # © 2016-2018 Open Architects Consulting SPRL.
-# © 2018 Coop IT Easy SCRLfs. (<http://www.coopiteasy.be>)
+# © 2018 Coop IT Easy SC. (<http://www.coopiteasy.be>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "MRP Brewing",
     "summary": "Manage the production of your brewery.",
     "category": "Stock",
     "version": "12.0.1.1.0",
-    "author": "Coop IT Easy SCRLfs",
+    "author": "Coop IT Easy SC",
     "website": "https://github.com/coopiteasy/vertical-brewery",
     "license": "AGPL-3",
     "depends": [

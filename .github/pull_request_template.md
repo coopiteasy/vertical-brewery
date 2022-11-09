@@ -1,10 +1,6 @@
 ## Description
 
-
-
 ## Odoo task (if applicable)
-
-
 
 ## Checklist before approval
 

@@ -14,10 +14,9 @@ odoo_version: 12.0
 org_name: Coop IT Easy SC
 org_slug: coopiteasy
 rebel_module_groups: []
-repo_description: 'TODO: add repo description.'
+repo_description: "TODO: add repo description."
 repo_name: Vertical Brewery
 repo_slug: vertical-brewery
 repo_website: https://github.com/coopiteasy/vertical-brewery
 travis_apt_packages: []
 travis_apt_sources: []
-

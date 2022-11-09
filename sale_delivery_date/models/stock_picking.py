@@ -1,5 +1,5 @@
 # Part of Open Architechts Consulting sprl. See LICENSE file for full copyright and licensing details. # noqa
-# Copyright 2019 Coop IT Easy SCRLfs
+# Copyright 2019 Coop IT Easy SC
 
 from odoo import api, fields, models
 
