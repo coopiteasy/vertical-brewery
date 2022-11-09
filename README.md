@@ -1,9 +1,17 @@
-[![Build Status](https://travis-ci.com/coopiteasy/vertical-brewery.svg?branch=12.0)](https://travis-ci.com/coopiteasy/vertical-brewery)
-![Licence](https://img.shields.io/badge/licence-AGPL--3-blue.svg)
+
+<!-- /!\ Non OCA Context : Set here the badge of your runbot / runboat instance. -->
+[![Pre-commit Status](https://github.com/coopiteasy/vertical-brewery/actions/workflows/pre-commit.yml/badge.svg?branch=12.0)](https://github.com/coopiteasy/vertical-brewery/actions/workflows/pre-commit.yml?query=branch%3A12.0)
+[![Build Status](https://github.com/coopiteasy/vertical-brewery/actions/workflows/test.yml/badge.svg?branch=12.0)](https://github.com/coopiteasy/vertical-brewery/actions/workflows/test.yml?query=branch%3A12.0)
+[![codecov](https://codecov.io/gh/coopiteasy/vertical-brewery/branch/12.0/graph/badge.svg)](https://codecov.io/gh/coopiteasy/vertical-brewery)
+<!-- /!\ Non OCA Context : Set here the badge of your translation instance. -->
+
+<!-- /!\ do not modify above this line -->
 
 # Vertical Brewery
 
-Manage your brewery production from Odoo.
+TODO: add repo description.
+
+<!-- /!\ do not modify below this line -->
 
 <!-- prettier-ignore-start -->
 [//]: # (addons)
@@ -18,4 +26,16 @@ addon | version | summary
 [sale_delivery_date](sale_delivery_date/) | 12.0.1.0.0 | Track delivery date and status from sale orders.
 
 [//]: # (end addons)
+
 <!-- prettier-ignore-end -->
+
+## Licenses
+
+This repository is licensed under [AGPL-3.0](LICENSE).
+
+However, each module can have a totally different license, as long as they adhere to Coop IT Easy SC
+policy. Consult each module's `__manifest__.py` file, which contains a `license` key
+that explains its license.
+
+----
+<!-- /!\ Non OCA Context : Set here the full description of your organization. -->
