@@ -1,4 +1,4 @@
-# Copyright 2022 Coop IT Easy SCRLfs
+# Copyright 2022 Coop IT Easy SC
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
@@ -6,8 +6,8 @@
     "summary": "List only crates when creating an unbuild order",
     "version": "12.0.1.0.0",
     "category": "Manufacturing",
-    "website": "https://coopiteasy.be",
-    "author": "Coop IT Easy SCRLfs",
+    "website": "https://github.com/coopiteasy/vertical-brewery",
+    "author": "Coop IT Easy SC",
     "license": "AGPL-3",
     "application": False,
     "depends": [
