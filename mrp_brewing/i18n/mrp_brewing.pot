@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* mrp_brewing
+#	* mrp_brewing
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 18:00+0000\n"
-"PO-Revision-Date: 2021-11-17 18:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,13 +16,13 @@ msgstr ""
 #. module: mrp_brewing
 #: selection:stock.report,report:0
 msgid " Brew Register Report"
-msgstr "Registre de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__dry_extract
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "% dry extract"
-msgstr "% extrait sec"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,description:mrp_brewing.demo_product_product_roublarde
@@ -36,40 +33,40 @@ msgstr ""
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "A. Inputs"
-msgstr "A. Entrées"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_res_company__warehousekeeper_no
 msgid "Authorized Warehousekeeper Number"
-msgstr "Entrepositaire agréé n°"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Authorized warehousekeeper n°"
-msgstr "Entrepositaire agréé n°"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "B. Outputs"
-msgstr "B. Sorties"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__product_id
 msgid "Beer"
-msgstr "Bière"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__bom
 msgid "Bill of material"
-msgstr "Recette"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Bom id"
-msgstr "Identification recette"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.actions.act_window,name:mrp_brewing.brew_declaration_action
@@ -78,25 +75,25 @@ msgstr "Identification recette"
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_declaration_form
 msgid "Brew Declaration"
-msgstr "Déclaration de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_declaration_tree
 msgid "Brew Declarations"
-msgstr "Déclarations de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_mrp_production__brew_number
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Brew Number"
-msgstr "Numéro de brassin"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_brew_order
 #: model:ir.model.fields,field_description:mrp_brewing.field_mrp_production__brew_orders
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_form
 msgid "Brew Order"
-msgstr "Ordre de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_mrp_production__brew_order_name
@@ -109,53 +106,53 @@ msgstr ""
 #: model:ir.ui.menu,name:mrp_brewing.menu_brew_order_action
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_tree
 msgid "Brew Orders"
-msgstr "Ordres de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.actions.report,name:mrp_brewing.action_brew_register_report
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Brew Register Report"
-msgstr "Registre de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__brew_beer_number
 msgid "Brew beer number"
-msgstr "Numéro de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Brew date"
-msgstr "Date de la confection des brassins"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__brew_declaration_id
 msgid "Brew declaration"
-msgstr "Déclaration pour brasser"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__brew_declaration_number
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 msgid "Brew declaration number"
-msgstr "Numéro de déclaration de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__brew_number
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_move__brew_number
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Brew number"
-msgstr "Numéro de brassin"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__name
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Brew order"
-msgstr "Ordre de brassage"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_product_product__brew_product_sequence
 #: model:ir.model.fields,field_description:mrp_brewing.field_product_template__brew_product_sequence
 msgid "Brew product sequence"
-msgstr "Séquence du produit brassé"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
@@ -169,14 +166,15 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_form
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_declaration_form
 msgid "Cancel"
-msgstr "Annuler"
+msgstr ""
 
 #. module: mrp_brewing
-#: selection:brew.declaration,state:0 selection:brew.order,state:0
+#: selection:brew.declaration,state:0
+#: selection:brew.order,state:0
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Cancelled"
-msgstr "Annulé"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_cap
@@ -193,7 +191,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:mrp_brewing.brew_declaration_action
 #: model_terms:ir.actions.act_window,help:mrp_brewing.brew_order_action
 msgid "Click to create a brew order."
-msgstr "Cliquez pour créer un ordre de brassage."
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__collecting_vessels
@@ -204,7 +202,7 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_res_company
 msgid "Companies"
-msgstr "Sociétés"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,help:mrp_brewing.field_sale_order_line__effective_date
@@ -215,7 +213,7 @@ msgstr ""
 #: selection:brew.declaration,state:0
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 msgid "Confirm"
-msgstr "Confirmer"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_form
@@ -230,7 +228,7 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__consumed_lines
 msgid "Consumed lines"
-msgstr "Poduits consommés"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__create_uid
@@ -238,7 +236,7 @@ msgstr "Poduits consommés"
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__create_uid
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__create_date
@@ -246,37 +244,23 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__create_date
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,help:mrp_brewing.field_stock_warehouse_orderpoint__qty_available
-msgid ""
-"Current quantity of products.\n"
-"In a context with a single Stock Location, this includes goods stored at "
-"this Location, or any of its children.\n"
-"In a context with a single Warehouse, this includes goods stored in the "
-"Stock Location of this Warehouse, or any of its children.\n"
-"stored in the Stock Location of the Warehouse of this Shop, or any of its "
-"children.\n"
-"Otherwise, this includes goods stored in any Stock Location with 'internal' "
-"type."
+msgid "Current quantity of products.\n"
+"In a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"stored in the Stock Location of the Warehouse of this Shop, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
 msgstr ""
-"Quantité actuelle d'articles en stock.\n"
-"Dans le contexte d'un seul emplacement de stock, ceci inclue les "
-"marchandises stockées dans cet emplacement et ses enfants.\n"
-"Dans le contexte d'un seul entrepôt, ceci inclue les marchandises stockées "
-"dans l'emplacement de l'entrepôt et ses enfants.\n"
-"Dans le contexte d'un magasin, ceci inclue les marchandises stockées dans "
-"l'entrepôt de ce magasin et ses enfants.\n"
-"Dans les autres contextes, ceci inclue les marchandises stockées dans "
-"n'importe quel emplacement de type 'interne'."
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Date"
-msgstr "Date "
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__display_name
@@ -284,57 +268,56 @@ msgstr "Date "
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__display_name
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: mrp_brewing
 #: selection:brew.order,state:0
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Done"
-msgstr "Terminé"
+msgstr ""
 
 #. module: mrp_brewing
-#: selection:brew.declaration,state:0 selection:brew.order,state:0
+#: selection:brew.declaration,state:0
+#: selection:brew.order,state:0
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Draft"
-msgstr "Brouillon"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_sale_order_line__effective_date
 msgid "Effective Date"
-msgstr "Date effective"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__date_to
 msgid "End Date"
-msgstr "Date de fin"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__end_date
 msgid "End date"
-msgstr "Date de fin"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_mrp_production__lot_ids
-#, fuzzy
 msgid "Finished Product Lot"
-msgstr "Rapport de produits finis"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__finished_product_lot_ids
-#, fuzzy
 msgid "Finished Product Lots"
-msgstr "Rapport de produits finis"
+msgstr ""
 
 #. module: mrp_brewing
 #: selection:stock.report,report:0
 msgid "Finished Product Report"
-msgstr "Rapport de produits finis"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 msgid "Finished Products Stock Report"
-msgstr "Rapport de produits finis"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.actions.report,name:mrp_brewing.action_finished_products_report
@@ -350,7 +333,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Group By..."
-msgstr "Regrouper par..."
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_production_lot__has_stock
@@ -360,22 +343,22 @@ msgstr ""
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Hl noted by the agents"
-msgstr "Hl Plato constaté par les agents"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Hl noted by the brewer"
-msgstr "Hl Plato constaté par le brasseur"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__hl_plato_agent
 msgid "Hl plato noted by the agents"
-msgstr "Hl Plato constaté par les agents"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__hl_plato_brewer
 msgid "Hl plato noted by the brewer"
-msgstr "Hl Plato constaté par le brasseur"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__id
@@ -420,7 +403,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move____last_update
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report____last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__write_uid
@@ -428,7 +411,7 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__write_uid
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__write_uid
 msgid "Last Updated by"
-msgstr "Derniere fois mis à jour par"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__write_date
@@ -436,7 +419,7 @@ msgstr "Derniere fois mis à jour par"
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__write_date
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__write_date
 msgid "Last Updated on"
-msgstr "Dernière mis à jour le"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,uom_name:mrp_brewing.demo_product_product_beer_wort
@@ -464,7 +447,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Lot Number"
-msgstr "Numéro de lot"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_move__lot_numbers
@@ -474,12 +457,12 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_stock_production_lot
 msgid "Lot/Serial"
-msgstr "Lot/N° série"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_mrp_product_produce__lot_id
 msgid "Lot/Serial Number"
-msgstr "Lot/numéro de série"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,help:mrp_brewing.field_brew_order__finished_product_lot_ids
@@ -501,7 +484,7 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_stock_warehouse_orderpoint
 msgid "Minimum Inventory Rule"
-msgstr "Règle de stock minimum."
+msgstr ""
 
 #. module: mrp_brewing
 #: code:addons/mrp_brewing/models/brew_order.py:147
@@ -523,54 +506,54 @@ msgstr ""
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Number"
-msgstr "Nombre"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Origin"
-msgstr "Origine"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__output_beer
 msgid "Output beer"
-msgstr "Sortie de bières en vrac Hl"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Output beer (Hl)"
-msgstr "Sortie de bières en vrac (Hl)"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__output_wort
 msgid "Output wort"
-msgstr "Sortie de moûts Hl"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Output wort (Hl)"
-msgstr "Sortie de moûts (Hl)"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_product_pricelist__particular_conditions
 msgid "Particular Conditions"
-msgstr "Conditions particulières"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__start_date
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Planned date"
-msgstr "Date plannifiée"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_product_pricelist
 msgid "Pricelist"
-msgstr "Liste de prix"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.raw_materials_report_view
 msgid "Print"
-msgstr "Imprimer"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__print_log
@@ -583,27 +566,27 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Product"
-msgstr "Produit"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__product_qty
 msgid "Product Quantity"
-msgstr "Quantité d'article"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_product_template
 msgid "Product Template"
-msgstr "Modèle d'article"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__product_uom_id
 msgid "Product Unit of Measure"
-msgstr "Unité de mesure d'article"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Product code"
-msgstr "Code produit"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_mrp_production
@@ -613,7 +596,7 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__production_order_id
 msgid "Production Order"
-msgstr "Ordre de fabrication"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.report_saleorder_brewing
@@ -631,12 +614,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Quantity"
-msgstr "Quantité"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_warehouse_orderpoint__qty_available
 msgid "Quantity On Hand"
-msgstr "Quantité en stock"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_production_lot__qty_available
@@ -647,34 +630,34 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Quantity left"
-msgstr "Quantité restante"
+msgstr ""
 
 #. module: mrp_brewing
 #: selection:stock.report,report:0
 msgid "Raw Material Report"
-msgstr "Rapport des matières premières"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.actions.act_window,name:mrp_brewing.action_report_raw_materials
 #: model:ir.ui.menu,name:mrp_brewing.menu_raw_materials_report
 msgid "Raw Materials Report"
-msgstr "Rapport des matières premières"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Raw Materials Stock Report"
-msgstr "Rapport de stock des matières premières"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.actions.report,name:mrp_brewing.action_raw_materials_report
 msgid "Raw materials stock report"
-msgstr "Rapport de stock des matières premières"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__real_bulk_wort
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Real bulk of wort"
-msgstr "Volume réel des moûts"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.recompute_qty_after_move_view
@@ -699,32 +682,32 @@ msgstr ""
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Remark"
-msgstr "Remarque"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_warehouse_orderpoint_tree
 msgid "Reordering Rules"
-msgstr "Règles de réapprovisionnement"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__report
 msgid "Report Name"
-msgstr "Nom du rapport"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.raw_materials_report_view
 msgid "Report Options"
-msgstr "Options du rapport"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 msgid "Request Date"
-msgstr "Date de la demande"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__request_date
 msgid "Request date"
-msgstr "Date de la demande"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_roublarde
@@ -735,9 +718,8 @@ msgstr ""
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_green_beer
 #: model:product.template,name:mrp_brewing.demo_product_product_green_beer_product_template
-#, fuzzy
 msgid "Roublarde Green Beer"
-msgstr "Volume de bière verte"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_beer_wort
@@ -748,17 +730,17 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_sale_order
 msgid "Sale Order"
-msgstr "Bon de commande"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_article_month_pivot
 msgid "Sales Analysis"
-msgstr "Analyse des ventes"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Ligne du bon de commande"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
@@ -780,17 +762,17 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_form
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_declaration_form
 msgid "Set to Draft"
-msgstr "Marquer comme brouillon"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Species"
-msgstr "Espèces"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_report__date_from
 msgid "Start Date"
-msgstr "Date de début"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_declaration__state
@@ -798,7 +780,7 @@ msgstr "Date de début"
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_declaration_filter
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.view_brew_order_filter
 msgid "Status"
-msgstr "Statut"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_sticker
@@ -809,13 +791,13 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_stock_move
 msgid "Stock Move"
-msgstr "Mouvement de stock"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.actions.act_window,name:mrp_brewing.sale_product_open_quants
 #: model:ir.ui.menu,name:mrp_brewing.menu_sale_product_open_quants_action
 msgid "Stock On Hand"
-msgstr "Stock disponible"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_sale_order_line__product_lot_ids
@@ -825,18 +807,18 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model,name:mrp_brewing.model_stock_report
 msgid "Stock Report"
-msgstr "Rapport de stock"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__sugar_quantity
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Sugar"
-msgstr "Sucre"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "Supplier Ref"
-msgstr "Référence fournisseur"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,uom_name:mrp_brewing.demo_product_product_bottle
@@ -855,7 +837,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_raw_materials
 msgid "UoM"
-msgstr "UdM"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_stock_recompute_after_move__update
@@ -865,19 +847,19 @@ msgstr ""
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Used raw material quantity"
-msgstr "Quantité de matières premières utilisées"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__used_vessels_tank
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Used vessels for work in tank"
-msgstr "Salle de brassage - cuves"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__green_beer_volume
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.brew_register
 msgid "Volume of green Beer"
-msgstr "Volume de bière verte"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_water
@@ -888,7 +870,7 @@ msgstr ""
 #. module: mrp_brewing
 #: model:ir.model.fields,field_description:mrp_brewing.field_brew_order__wort_gathering_date
 msgid "Wort gathering date"
-msgstr "Date de réunion des moûts"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,uom_name:mrp_brewing.demo_product_product_malt
@@ -917,12 +899,12 @@ msgstr ""
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.recompute_qty_after_move_view
 msgid "or"
-msgstr "ou"
+msgstr ""
 
 #. module: mrp_brewing
 #: model_terms:ir.ui.view,arch_db:mrp_brewing.stock_finished_products
 msgid "stock_move. Inputs"
-msgstr "A. Entrées"
+msgstr ""
 
 #. module: mrp_brewing
 #: model:product.product,name:mrp_brewing.demo_product_product_yeast
@@ -930,13 +912,3 @@ msgstr "A. Entrées"
 msgid "yeast"
 msgstr ""
 
-#~ msgid "Commitment Date"
-#~ msgstr "Date d'engagement"
-
-#~ msgid ""
-#~ "Date by which the products are sure to be delivered. This is a date that "
-#~ "you can promise to the customer, based on the Product Lead Times."
-#~ msgstr ""
-#~ "Date pour laquelle les articles sont sûrs d'être livrés. C'est une date "
-#~ "que vous pouvez promettre au client, basée sur les délais "
-#~ "d'approvisionnement des articles."
