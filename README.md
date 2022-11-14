@@ -20,10 +20,10 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[mrp_brewing](mrp_brewing/) | 12.0.1.1.0 |  | Manage the production of your brewery.
-[mrp_brewing_sale_statistics](mrp_brewing_sale_statistics/) | 12.0.1.0.0 |  | Adds brewery related sale metrics.
-[mrp_unbuild_crates_only](mrp_unbuild_crates_only/) | 12.0.1.0.0 |  | List only crates when creating an unbuild order
-[sale_delivery_date](sale_delivery_date/) | 12.0.1.0.0 |  | Track delivery date and status from sale orders.
+[mrp_brewing](mrp_brewing/) | 12.0.1.1.1 |  | Manage the production of your brewery.
+[mrp_brewing_sale_statistics](mrp_brewing_sale_statistics/) | 12.0.1.0.1 |  | Adds brewery related sale metrics.
+[mrp_unbuild_crates_only](mrp_unbuild_crates_only/) | 12.0.1.0.1 |  | List only crates when creating an unbuild order
+[sale_delivery_date](sale_delivery_date/) | 12.0.1.0.1 |  | Track delivery date and status from sale orders.
 
 [//]: # (end addons)
 
