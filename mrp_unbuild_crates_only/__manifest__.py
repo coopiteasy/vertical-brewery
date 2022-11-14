@@ -4,7 +4,7 @@
 {
     "name": "Unbuild crates only",
     "summary": "List only crates when creating an unbuild order",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Manufacturing",
     "website": "https://github.com/coopiteasy/vertical-brewery",
     "author": "Coop IT Easy SC",
