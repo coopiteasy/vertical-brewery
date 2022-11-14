@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_delivery_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_delivery_date
+#: selection:sale.order,delivery_status:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: sale_delivery_date
+#: model:ir.model.fields,field_description:sale_delivery_date.field_stock_picking__date_stock_move
+msgid "Date of Transfer "
+msgstr ""
+
+#. module: sale_delivery_date
+#: selection:sale.order,delivery_status:0
+msgid "Delivered"
+msgstr ""
+
+#. module: sale_delivery_date
+#: model:ir.model.fields,field_description:sale_delivery_date.field_sale_order__delivery_done_date
+msgid "Delivery done date"
+msgstr ""
+
+#. module: sale_delivery_date
+#: model:ir.model.fields,field_description:sale_delivery_date.field_sale_order__delivery_status
+msgid "Delivery status"
+msgstr ""
+
+#. module: sale_delivery_date
+#: model:ir.model,name:sale_delivery_date.model_sale_order
+msgid "Sale Order"
+msgstr ""
+
+#. module: sale_delivery_date
+#: selection:sale.order,delivery_status:0
+msgid "To deliver"
+msgstr ""
+
+#. module: sale_delivery_date
+#: model:ir.model,name:sale_delivery_date.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
